@@ -10,9 +10,7 @@
     html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
     .topbar{height:69px;background:var(--navy);display:flex;align-items:center;padding:0 24px;box-shadow:0 2px 8px #0004;color:white}
     .brand{display:flex;align-items:center;gap:8px;min-width:128px}
-    .brand-mark{width:50px;height:50px;border-radius:7px;background:#075791;display:grid;place-items:center;position:relative;overflow:hidden}
-    .brand-mark:before{content:"";width:31px;height:16px;background:#fff;clip-path:polygon(0 0,100% 0,75% 65%,50% 100%,25% 65%);display:block}
-    .brand-mark:after{content:"";position:absolute;bottom:8px;width:23px;height:3px;border-radius:50%;background:#b9d8e8}
+    .brand-mark{width:50px;height:50px;border-radius:7px;object-fit:cover;display:block}
     .brand-name{font-size:13px;line-height:12px;font-weight:bold;letter-spacing:.1px}
     .brand-name span{display:block}
     .director{font-size:16px;font-weight:700;margin-left:10px;white-space:nowrap}
@@ -35,7 +33,7 @@
 <body>
   <header class="topbar">
     <div class="brand" aria-label="Faculdade Metropolitana">
-      <div class="brand-mark" aria-hidden="true"></div>
+      <img class="brand-mark" src="logo-faculdade.jpg" alt="Logo Faculdade Metropolitana">
       <div class="brand-name"><span>Faculdade</span><span>Metropolitana</span><small>.com</small></div>
     </div>
     <div class="director">Conheça Nosso Diretor</div>
