@@ -14,6 +14,7 @@
     .profile-panel{display:none;position:absolute;top:69px;left:0;right:0;height:317px;background:var(--navy);box-shadow:0 5px 10px #0005;color:white;padding:20px 24px 0;z-index:5}
     .profile-panel.open{display:block}.panel-link{display:flex;align-items:center;gap:16px;color:#fff;text-decoration:none;font-size:18px;margin:3px 0 25px}.panel-icon{width:24px;text-align:center;font-size:22px}.profile-user{position:absolute;left:24px;bottom:27px;font-size:17px}.avatar{position:absolute;right:18px;bottom:0;width:57px;height:57px;border-radius:50%;background:#eee;border:1px solid #ddd;overflow:hidden;cursor:pointer;display:grid;place-items:center}.avatar img{width:100%;height:100%;object-fit:cover;display:none}.avatar.has-photo img{display:block}.avatar-placeholder{font-size:38px;color:#c9c9c9;line-height:1}
     .hero{height:157px;background:#fafafa;padding:21px 24px}.hero-title{font-size:20px;color:#4e7f9d;margin:0}.menu-button{margin-top:53px;background:var(--navy);color:#fff;border:0;border-radius:3px;padding:10px 13px;font-size:14px;cursor:pointer}.menu-button .icon{font-size:15px;margin-right:8px}
+    .menu-screen{display:none;background:#f7f7f7;min-height:calc(100vh - 69px);color:#292929}.menu-screen.open{display:block}.menu-credit{padding:19px 24px 12px;color:#888;font-size:17px}.menu-credit strong{display:block;font-size:20px;font-weight:400;margin-top:5px}.menu-credit a{display:block;color:#4e7f9d;text-decoration:none;font-size:20px;margin-top:10px}.menu-list{padding:25px 0 0}.menu-item{height:49px;display:flex;align-items:center;padding:0 24px;gap:11px;font-size:17px}.menu-item .mi{width:18px;text-align:center;font-size:18px}.menu-item.highlight{background:#076898;color:#fff;border-bottom:1px solid #ddd}.menu-item .new{color:#a77777;font-size:14px;position:absolute;margin:-29px 0 0 24px}.menu-item.has-new{margin-top:25px}.menu-item.arrow{justify-content:flex-start}.down{margin-left:auto;font-size:26px;font-weight:bold}.menu-close{margin:20px 24px;background:#003b68;color:white;border:0;border-radius:3px;padding:11px 15px;font-size:14px}
     main{padding:27px 24px 0}.breadcrumb{background:#fafafa;padding:13px 17px;color:#4f84a0;font-size:14px;line-height:24px;margin-bottom:24px}.breadcrumb .slash{color:#ccc;margin:0 10px}.breadcrumb .current{color:#777}h1{font-size:22px;font-weight:600;margin:0;padding-bottom:25px;border-bottom:1px solid var(--line)}
     .notice{margin-top:25px;background:var(--info);border:1px solid var(--info-border);border-radius:4px;padding:19px;color:#39718e;font-size:16px;display:flex;align-items:center;gap:12px}.notice-icon{width:18px;height:18px;border-radius:50%;background:#39718e;color:#fff;display:inline-grid;place-items:center;font-size:12px;font-weight:bold;flex:0 0 auto}footer{margin:26px 24px 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:#aaa}
     @media (min-width:700px){.topbar{padding:0 40px}.hero,main{padding-left:40px;padding-right:40px}footer{margin-left:40px;margin-right:40px}.brand-name{font-size:14px}.director{font-size:18px}.profile-panel{padding-left:40px}.profile-user{left:40px}}
@@ -34,13 +35,33 @@
     </div>
   </header>
   <section class="hero"><p class="hero-title">Saiba como ganhar créditos!</p><button class="menu-button"><span class="icon">▦</span> MENU</button></section>
-  <main><nav class="breadcrumb" aria-label="Você está aqui"><span>Início</span><span class="slash">/</span><span class="current">Histórico de compras</span></nav><h1>Histórico de compras</h1><div class="notice"><span class="notice-icon">i</span><span>Você ainda não efetuou nenhuma compra.</span></div></main>
+  <main id="content"><nav class="breadcrumb" aria-label="Você está aqui"><span>Início</span><span class="slash">/</span><span class="current">Histórico de compras</span></nav><h1>Histórico de compras</h1><div class="notice"><span class="notice-icon">i</span><span>Você ainda não efetuou nenhuma compra.</span></div></main>
+  <section class="menu-screen" id="menuScreen">
+    <div class="menu-credit">Créditos disponíveis<strong>R$0,00</strong><a href="#creditos">Saiba como ganhar créditos!</a></div>
+    <div class="menu-list">
+      <div class="menu-item has-new"><span class="new">Novidade!</span><span class="mi">♨</span><b>Metro Shop</b></div>
+      <div class="menu-item has-new"><span class="new">Novidade!</span><span class="mi">♨</span><b>Diálogo Aberto</b></div>
+      <div class="menu-item"><span class="mi">⌂</span>Início</div>
+      <div class="menu-item"><span class="mi">▣</span>Meus cursos</div>
+      <div class="menu-item"><span class="mi">▾</span>Comprar cursos</div>
+      <div class="menu-item"><span class="mi">▰</span>Plantão de dúvidas</div>
+      <div class="menu-item highlight"><span class="mi">▥</span>Histórico de compras</div>
+      <div class="menu-item"><span class="mi">▤</span>Certificados solicitados</div>
+      <div class="menu-item"><span class="mi">♧</span>Declarações</div>
+      <div class="menu-item arrow"><span class="mi">●</span>Dúvidas e Solicitações<span class="down">⌄</span></div>
+      <div class="menu-item"><span class="mi">★</span>Metropolitana Na Mídia</div>
+      <div class="menu-item"><span class="mi">◉</span>Portal ESF</div>
+    </div>
+    <button class="menu-close" id="menuClose">VOLTAR</button>
+  </section>
   <footer>Copyright © 2026 Faculdade Metropolitana</footer>
   <script>
     const toggle=document.querySelector('.menu-toggle'),panel=document.querySelector('#profilePanel');
     toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.textContent=open?'☰':'☰';panel.classList.toggle('open',!open)});
     document.querySelector('#photoInput').addEventListener('change',e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{document.querySelector('#avatarImage').src=ev.target.result;document.querySelector('.avatar').classList.add('has-photo');};reader.readAsDataURL(file)});
-    document.querySelector('.menu-button').addEventListener('click',()=>alert('Menu'));
+    const menuScreen=document.querySelector('#menuScreen');
+    document.querySelector('.menu-button').addEventListener('click',()=>{document.querySelector('#content').style.display='none';document.querySelector('.hero').style.display='none';menuScreen.classList.add('open');});
+    document.querySelector('#menuClose').addEventListener('click',()=>{menuScreen.classList.remove('open');document.querySelector('#content').style.display='block';document.querySelector('.hero').style.display='block';});
   </script>
 </body>
 </html>
