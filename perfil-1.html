@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faculdade Metropolitana</title>
+  <style>
+    :root{--navy:#003b68;--text:#222;--line:#eee;--info:#d9f0ff;--info-border:#b9dff3}
+    *{box-sizing:border-box} html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:#fff}
+    .topbar{height:69px;background:var(--navy);display:flex;align-items:center;padding:0 24px;box-shadow:0 2px 8px #0004;color:white;position:relative;z-index:3}
+    .brand{display:flex;align-items:center;gap:8px;min-width:128px}.brand-mark{width:50px;height:50px;border-radius:7px;object-fit:cover;display:block}
+    .brand-name{font-size:13px;line-height:12px;font-weight:bold}.brand-name span{display:block}.director{font-size:16px;font-weight:700;margin-left:10px;white-space:nowrap}
+    .menu-toggle{margin-left:auto;width:55px;height:42px;border:1px solid #9db8b1;border-radius:5px;background:#446b67;color:white;font-size:27px;line-height:1;cursor:pointer}
+    .profile-panel{display:none;position:absolute;top:69px;left:0;right:0;height:317px;background:var(--navy);box-shadow:0 5px 10px #0005;color:white;padding:20px 24px 0;z-index:5}
+    .profile-panel.open{display:block}.panel-link{display:flex;border:0;background:transparent;font:inherit;text-align:left;cursor:pointer;color:#fff;align-items:center;gap:16px;color:#fff;text-decoration:none;font-size:18px;margin:3px 0 25px}.panel-icon{width:24px;text-align:center;font-size:22px}.profile-user{position:absolute;left:24px;bottom:27px;font-size:17px}.avatar{position:absolute;border:0;padding:0;right:18px;bottom:0;width:57px;height:57px;border-radius:50%;background:#eee;border:1px solid #ddd;overflow:hidden;cursor:pointer;display:grid;place-items:center}.avatar img{width:100%;height:100%;object-fit:cover;display:none}.photo-input{position:absolute;inset:0;width:100%;height:100%;opacity:0;z-index:10;cursor:pointer}.avatar .photo-input{display:block}.avatar.has-photo img{display:block}.avatar-placeholder{font-size:38px;color:#c9c9c9;line-height:1}
+    .hero{height:157px;background:#fafafa;padding:21px 24px}.hero-title{font-size:20px;color:#4e7f9d;margin:0}.menu-button{margin-top:53px;background:var(--navy);color:#fff;border:0;border-radius:3px;padding:10px 13px;font-size:14px;cursor:pointer}.menu-button .icon{font-size:15px;margin-right:8px}
+    .menu-screen{display:none;background:#f7f7f7;min-height:calc(100vh - 69px);color:#292929}.menu-screen.open{display:block}.menu-credit{padding:19px 24px 12px;color:#888;font-size:17px}.menu-credit strong{display:block;font-size:20px;font-weight:400;margin-top:5px}.menu-credit a{display:block;color:#4e7f9d;text-decoration:none;font-size:20px;margin-top:10px}.menu-list{padding:25px 0 0}.menu-item{height:49px;display:flex;align-items:center;padding:0 24px;gap:11px;font-size:17px}.menu-item .mi{width:18px;text-align:center;font-size:18px}.menu-item.highlight{background:#076898;color:#fff;border-bottom:1px solid #ddd}.menu-item .new{color:#a77777;font-size:14px;position:absolute;margin:-29px 0 0 24px}.menu-item.has-new{margin-top:25px}.menu-item.arrow{justify-content:flex-start}.down{margin-left:auto;font-size:26px;font-weight:bold}.menu-close{margin:20px 24px;background:#003b68;color:white;border:0;border-radius:3px;padding:11px 15px;font-size:14px}
+    main{padding:27px 24px 0}.breadcrumb{background:#fafafa;padding:13px 17px;color:#4f84a0;font-size:14px;line-height:24px;margin-bottom:24px}.breadcrumb .slash{color:#ccc;margin:0 10px}.breadcrumb .current{color:#777}h1{font-size:22px;font-weight:600;margin:0;padding-bottom:25px;border-bottom:1px solid var(--line)}
+    .notice{margin-top:25px;background:var(--info);border:1px solid var(--info-border);border-radius:4px;padding:19px;color:#39718e;font-size:16px;display:flex;align-items:center;gap:12px}.course-card{margin-top:24px;border:1px solid #e1e1e1;border-radius:4px;background:#fff;min-height:102px;padding:20px 18px;box-shadow:0 1px 2px #0000000d}.course-type{font-size:16px;color:#777;margin-bottom:9px}.course-name{font-size:20px;color:#333;font-weight:600;text-transform:uppercase}.card-button{margin-top:22px;background:#003b68;color:#fff;border:0;border-radius:3px;padding:11px 16px;font-size:14px;cursor:pointer}.id-screen{display:none;background:#f5f5f5;min-height:calc(100vh - 69px);padding:18px 12px 30px}.id-screen.open{display:block}.id-title{font-size:20px;font-weight:400;margin:0 0 15px;color:#333}.student-card{background:#fff;overflow:hidden;box-shadow:0 2px 8px #0003;max-width:410px;margin:0 auto}.student-head{height:219px;background:#001e4d;color:#fff;text-align:center;padding:0;position:relative}.student-logo{position:absolute;right:18px;top:18px;width:154px;height:38px;object-fit:contain;display:block}.student-photo{position:absolute;top:67px;left:50%;transform:translateX(-50%);width:94px;height:94px;object-fit:cover;border-radius:13px;background:#eee;display:block}.student-photo.placeholder{object-fit:contain;padding:16px}.student-data{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:white}.student-data strong{font-size:18px;display:block;text-transform:uppercase;font-weight:400;letter-spacing:0}.student-data .email{font-size:13px;margin-top:4px}.student-info{padding:19px 12px 22px;text-align:center;color:#111;min-height:384px}.student-info .label{font-size:18px;margin-top:0}.student-info .value{font-size:24px;font-weight:bold;margin:7px 0 27px}.student-info .course{font-size:19px;margin-bottom:3px}.student-info .course-name{font-size:26px;font-weight:bold}.student-info .validity{font-size:19px;margin-top:29px}.student-info .date{font-size:26px;font-weight:bold;margin-top:4px}.qr-code{width:188px;height:188px;object-fit:cover;margin:26px auto 0;display:block}.id-back{display:block;margin:20px auto 0;background:#003b68;color:#fff;border:0;border-radius:3px;padding:11px 20px;font-size:14px}.notice-icon{width:18px;height:18px;border-radius:50%;background:#39718e;color:#fff;display:inline-grid;place-items:center;font-size:12px;font-weight:bold;flex:0 0 auto}footer{margin:26px 24px 0;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:#aaa}
+    @media (min-width:700px){.topbar{padding:0 40px}.hero,main{padding-left:40px;padding-right:40px}footer{margin-left:40px;margin-right:40px}.brand-name{font-size:14px}.director{font-size:18px}.profile-panel{padding-left:40px}.profile-user{left:40px}}
+    @media (max-width:699px){
+      .topbar{height:72px;padding:0 10px;gap:6px;overflow:hidden}
+      .brand{min-width:0;width:150px;flex:0 0 150px;gap:6px;overflow:hidden}
+      .brand-mark{width:46px;height:46px;flex:0 0 46px;border-radius:8px}
+      .brand-name{font-size:11px;line-height:11px;letter-spacing:-.2px;white-space:nowrap}
+      .brand-name small{font-size:10px}
+      .director{min-width:0;flex:1;margin-left:0;font-size:13px;line-height:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .menu-toggle{flex:0 0 48px;width:48px;height:42px;font-size:25px;padding:0}
+      .profile-panel{top:72px;padding-left:16px;padding-right:16px}
+      .hero{height:157px;padding:21px 16px}
+      main{padding:22px 16px 0}
+      footer{margin-left:16px;margin-right:16px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand" aria-label="Faculdade Metropolitana"><img class="brand-mark" src="logo-faculdade.png" alt="Logo Faculdade Metropolitana"><div class="brand-name"><span>Faculdade</span><span>Metropolitana</span><small>.com</small></div></div>
+    <div class="director">Conheça Nosso Diretor</div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <div class="profile-panel" id="profilePanel">
+      <a class="panel-link" href="#amigo"><span class="panel-icon">♧</span><span>Indique um amigo!</span></a>
+      <button type="button" class="panel-link photo-trigger" title="Adicionar foto"><span class="panel-icon">▣</span><span class="sr-only">Adicionar foto</span></button>
+      <a class="panel-link" href="mailto:"><span class="panel-icon">✉</span><span class="sr-only">Mensagens</span></a>
+      <div class="profile-user">Fabio Júnior (RA: 328879)</div>
+      <label class="avatar" title="Adicionar foto"><span class="avatar-placeholder">●</span><img id="avatarImage" alt="Foto do perfil"><input id="photoInput" class="photo-input" type="file" accept="image/*"></label>
+    </div>
+  </header>
+  <section class="hero"><p class="hero-title">Saiba como ganhar créditos!</p><button class="menu-button"><span class="icon">▦</span> MENU</button></section>
+  <main id="content"><nav class="breadcrumb" aria-label="Você está aqui"><span>Início</span><span class="slash">/</span><span class="current">Meus cursos</span></nav><h1>Meus cursos</h1><div class="course-card"><div class="course-type">Graduação/EAD</div><div class="course-name">ADMINISTRAÇÃO</div><button class="card-button" id="cardButton">MINHA CARTEIRINHA</button></div></main>
+  <section class="id-screen" id="idScreen"><h1 class="id-title">Minha carteirinha</h1><div class="student-card"><div class="student-head"><img class="student-logo" src="logo-carteirinha.png" alt="Faculdade Metropolitana"><img class="student-photo placeholder" id="cardPhoto" alt="Foto do aluno"><div class="student-data"><strong>FÁBIO DE JESUS JUNIOR</strong><div class="email">fabio17dejesusjunior@gmail.com</div></div></div><div class="student-info"><div class="label">CPF</div><div class="value">103.216.525-17</div><div class="course">GRADUAÇÃO / EAD</div><div class="course-name">ADMINISTRAÇÃO</div><div class="validity">VALIDADE</div><div class="date">10/01/2027</div><img class="qr-code" src="qr-carteirinha.png" alt="QR Code da carteirinha"></div></div><button class="id-back" id="idBack">VOLTAR</button></section>
+  <section class="menu-screen" id="menuScreen">
+    <div class="menu-credit">Créditos disponíveis<strong>R$0,00</strong><a href="#creditos">Saiba como ganhar créditos!</a></div>
+    <div class="menu-list">
+      <div class="menu-item has-new"><span class="new">Novidade!</span><span class="mi">♨</span><b>Metro Shop</b></div>
+      <div class="menu-item has-new"><span class="new">Novidade!</span><span class="mi">♨</span><b>Diálogo Aberto</b></div>
+      <div class="menu-item"><span class="mi">⌂</span>Início</div>
+      <div class="menu-item"><span class="mi">▣</span>Meus cursos</div>
+      <div class="menu-item"><span class="mi">▾</span>Comprar cursos</div>
+      <div class="menu-item"><span class="mi">▰</span>Plantão de dúvidas</div>
+      <div class="menu-item highlight"><span class="mi">▥</span>Histórico de compras</div>
+      <div class="menu-item"><span class="mi">▤</span>Certificados solicitados</div>
+      <div class="menu-item"><span class="mi">♧</span>Declarações</div>
+      <div class="menu-item arrow"><span class="mi">●</span>Dúvidas e Solicitações<span class="down">⌄</span></div>
+      <div class="menu-item"><span class="mi">★</span>Metropolitana Na Mídia</div>
+      <div class="menu-item"><span class="mi">◉</span>Portal ESF</div>
+    </div>
+    <button class="menu-close" id="menuClose">VOLTAR</button>
+  </section>
+  <footer>Copyright © 2026 Faculdade Metropolitana</footer>
+  <script>
+    const toggle=document.querySelector('.menu-toggle'),panel=document.querySelector('#profilePanel');
+    toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.textContent=open?'☰':'☰';panel.classList.toggle('open',!open)});
+    const photoInput=document.querySelector('#photoInput'), avatar=document.querySelector('.avatar'), avatarImage=document.querySelector('#avatarImage');
+    function abrirSeletorFoto(){photoInput.click()}
+    document.querySelectorAll('.photo-trigger').forEach(el=>el.addEventListener('click',abrirSeletorFoto));
+    photoInput.addEventListener('change',e=>{const file=e.target.files&&e.target.files[0];if(!file)return;if(!file.type.startsWith('image/'))return;const reader=new FileReader();reader.onload=ev=>{avatarImage.src=ev.target.result;avatar.classList.add('has-photo');try{localStorage.setItem('fotoPerfil',ev.target.result)}catch(_){} };reader.readAsDataURL(file)});
+    try{const fotoSalva=localStorage.getItem('fotoPerfil');if(fotoSalva){avatarImage.src=fotoSalva;avatar.classList.add('has-photo')}}catch(_){}
+    const menuScreen=document.querySelector('#menuScreen');
+    const idScreen=document.querySelector('#idScreen');
+    document.querySelector('#cardButton').addEventListener('click',()=>{document.querySelector('#content').style.display='none';document.querySelector('.hero').style.display='none';idScreen.classList.add('open');const photo=document.querySelector('#avatarImage');if(document.querySelector('.avatar').classList.contains('has-photo')){document.querySelector('#cardPhoto').src=photo.src;document.querySelector('#cardPhoto').classList.remove('placeholder');}});
+    document.querySelector('#idBack').addEventListener('click',()=>{idScreen.classList.remove('open');document.querySelector('#content').style.display='block';document.querySelector('.hero').style.display='block';});
+    document.querySelector('.menu-button').addEventListener('click',()=>{document.querySelector('#content').style.display='none';document.querySelector('.hero').style.display='none';menuScreen.classList.add('open');});
+    document.querySelector('#menuClose').addEventListener('click',()=>{menuScreen.classList.remove('open');document.querySelector('#content').style.display='block';document.querySelector('.hero').style.display='block';});
+  </script>
+</body>
+</html>
